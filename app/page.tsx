@@ -42,6 +42,10 @@ export default function Home() {
         .select("*")
         .limit(5);
 
+      // Función RPC invocable por anon (a propósito): queda como `.rpc("...")`
+      // en el bundle para que el scanner la detecte.
+      await supabase.rpc("get_public_stats");
+
       const results: TableState[] = [
         {
           label: "clientes_abierta (RLS off)",
