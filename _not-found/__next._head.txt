@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[67438,["/sereno-test-bench/_next/static/chunks/2gdet3wlbkcm8.js"],"ViewportBoundary"]
+3:I[67438,["/sereno-test-bench/_next/static/chunks/2gdet3wlbkcm8.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[73716,["/sereno-test-bench/_next/static/chunks/2gdet3wlbkcm8.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Banco de pruebas — Supabase (vulnerable a propósito)"}],["$","meta","1",{"name":"description","content":"App de prueba para validar un scanner de seguridad. Datos falsos."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","meta","3",{"name":"sereno-site-verification","content":"sereno-9da28dc20fe838adc96758db8bf78ae0"}],["$","link","4",{"rel":"icon","href":"/sereno-test-bench/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L5","5",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ZLKOq8sP-23bTFE26xwhM"}
