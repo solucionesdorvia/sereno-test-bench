@@ -26,31 +26,39 @@ export default function Home() {
   const [storageError, setStorageError] = useState<string | null>(null);
 
   useEffect(() => {
-    const TABLAS = [
-      { name: "clientes_abierta", label: "clientes_abierta (RLS off)" },
-      {
-        name: "pedidos_policy_abierta",
-        label: "pedidos_policy_abierta (policy USING true)",
-      },
-      {
-        name: "usuarios_protegida",
-        label: "usuarios_protegida (RLS + policy correcta)",
-      },
-    ];
-
     (async () => {
-      const results: TableState[] = [];
-      for (const t of TABLAS) {
-        const { data, error } = await supabase
-          .from(t.name)
-          .select("*")
-          .limit(5);
-        results.push({
-          label: t.label,
-          rows: data ?? [],
-          error: error?.message ?? null,
-        });
-      }
+      // Llamadas con nombre de tabla LITERAL (como las escribe una app real):
+      // así el nombre queda en el bundle en forma `.from("tabla")`.
+      const abierta = await supabase
+        .from("clientes_abierta")
+        .select("*")
+        .limit(5);
+      const policy = await supabase
+        .from("pedidos_policy_abierta")
+        .select("*")
+        .limit(5);
+      const protegida = await supabase
+        .from("usuarios_protegida")
+        .select("*")
+        .limit(5);
+
+      const results: TableState[] = [
+        {
+          label: "clientes_abierta (RLS off)",
+          rows: abierta.data ?? [],
+          error: abierta.error?.message ?? null,
+        },
+        {
+          label: "pedidos_policy_abierta (policy USING true)",
+          rows: policy.data ?? [],
+          error: policy.error?.message ?? null,
+        },
+        {
+          label: "usuarios_protegida (RLS + policy correcta)",
+          rows: protegida.data ?? [],
+          error: protegida.error?.message ?? null,
+        },
+      ];
       setTables(results);
 
       // Storage: listamos el bucket público.
