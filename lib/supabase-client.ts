@@ -20,3 +20,12 @@ export const supabase = createClient(
   SUPABASE_URL || "https://placeholder.supabase.co",
   SUPABASE_ANON_KEY || "placeholder-anon-key",
 );
+
+// El footgun real: alguien crea un cliente con la SERVICE ROLE key en el front.
+// Pasarla como argumento a createClient evita que el minificador la borre del
+// bundle (que es lo que pasa si solo la usás en un check booleano). Así el
+// scanner puede encontrarla. NUNCA hacer esto en una app real.
+export const supabaseAdmin = createClient(
+  SUPABASE_URL || "https://placeholder.supabase.co",
+  LEAKED_SERVICE_ROLE_KEY || "placeholder-service-key",
+);

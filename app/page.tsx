@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import {
   supabase,
+  supabaseAdmin,
   SUPABASE_URL,
   LEAKED_SERVICE_ROLE_KEY,
 } from "@/lib/supabase-client";
@@ -114,9 +115,11 @@ export default function Home() {
         )}
       </section>
 
-      {/* La service key fugada se referencia acá para que entre al bundle. */}
+      {/* Referencias para que el cliente admin (con la service key) no se
+          tree-shakee y la key quede en el bundle, como en el footgun real. */}
       <p className="mt-10 text-[10px] text-zinc-300 dark:text-zinc-700">
-        build-ref: {LEAKED_SERVICE_ROLE_KEY ? "ok" : "n/a"}
+        build-ref: {supabaseAdmin ? "admin-client" : "n/a"} /{" "}
+        {LEAKED_SERVICE_ROLE_KEY.length > 0 ? "key-present" : "n/a"}
       </p>
     </main>
   );
